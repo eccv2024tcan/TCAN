@@ -5,6 +5,7 @@ This repository is the official implementation of [TCAN](https://arxiv.org/abs/2
 
 > **TCAN: Animating Human Images with Temporally Consistent Pose Guidance using Diffusion Models**<br>
 > [Jeongho Kim*](https://scholar.google.co.kr/citations?user=4SCCBFwAAAAJ&hl=ko/), [Min-Jung Kim*](https://emjay73.github.io/), [Junsoo Lee](https://ssuhan.github.io/), [Jaegul Choo](https://sites.google.com/site/jaegulchoo/) 
+(*: equal contribution)
 
 [[arXiv Paper](https://arxiv.org/abs/2407.09012)]&nbsp;
 [[Project Page](https://eccv2024tcan.github.io/)]&nbsp;
