@@ -12,6 +12,6 @@ This repository is the official implementation of [TCAN](https://arxiv.org/abs/2
 
 
 ## TODO List
-- [] Inference code
-- [] Release model weights
-- [] Training code
+- [ ] Inference code
+- [ ] Release model weights
+- [ ] Training code
