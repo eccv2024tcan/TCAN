@@ -13,8 +13,8 @@ This repository is the official implementation of [TCAN](https://arxiv.org/abs/2
 
 ## TODO List
 - [ ] Inference code
-- [V] Release model weights
-- [V] Training code
+- [x] Release model weights
+- [x] Training code
 
 ## Dataset
 Preprocessed TikTok: [Download](https://huggingface.co/datasets/rlawjdghek/TikTok/tree/main)
