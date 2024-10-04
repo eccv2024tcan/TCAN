@@ -9,12 +9,12 @@ This repository is the official implementation of [TCAN](https://arxiv.org/abs/2
 [[Project Page](https://eccv2024tcan.github.io/)]&nbsp;
 
 
-## TODO List
+## 🔖 TODO List
 - [ ] Inference code
 - [ ] Release model weights
 - [x] Training code
 
-## Dataset
+## 🗄️ Dataset
 Preprocessed TikTok: [Download](https://huggingface.co/datasets/rlawjdghek/TikTok/tree/main)
 
 Unzip the donwnloaded dataset and set the path to the dataset as follows
@@ -30,7 +30,7 @@ L train
 L valid_video
 ```
 
-## Environment
+## 🌍 Environment
 ```bash
 conda create -n tcan python=3.10
 conda activate tcan
@@ -56,22 +56,42 @@ pip install onnxruntime
 pip install numpy==1.26.4
 ```
 
-#### From the Links
-Download pretrained motion module weights provided by [AnimateDiff](https://github.com/guoyww/animatediff/)
-and RealisticVision UNet weights from the link.
-Place the downloaded weights into the 'checkpoints' directory.
+## ⚖️ Model Weights
 
-Download Link: 
+### Pretrained Model Weights
+#### 📋 List of Pretrained Weights
+- stablediffusion-v1.5
+- VAE
+- ControlNet
+  
+#### 💻 Download From Terminal
+```bash
+git lfs install
+cd checkpoints 
+git clone https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5
+git clone https://huggingface.co/stabilityai/sd-vae-ft-mse 
+cd ..
+
+# download yolox_l.onnx and dw-ll_ucoco_384.onnx
+cd dwpose/annotator
+git clone https://huggingface.co/yzd-v/DWPose ckpts
+```
+#### 🔗 Download From Links
+Place the downloaded weights into the 'TCAN/checkpoints' directory.
+
+motion module weights provided by [AnimateDiff](https://github.com/guoyww/animatediff/): 
 [mm_sd_v15.ckpt](https://huggingface.co/guoyww/animatediff/blob/main/mm_sd_v15.ckpt), 
 [mm_sd_v15_v2.ckpt](https://huggingface.co/guoyww/animatediff/blob/main/mm_sd_v15_v2.ckpt).
+
+RealisticVision UNet weights: 
 [realisticVision](https://huggingface.co/spaces/TianxingWu/FreeInit/resolve/09c34cd1aae3a2362d116970e60a9d4f0c562738/models/DreamBooth_LoRA/realisticVisionV51_v20Novae.safetensors?download=true)
 
 
 
-## Train
+## 🔥 Train
 🔥We trained our model using two A100🔥
 
-### First Stage
+### 1️⃣ First Stage
 ```bash
 CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node 1 --master_port 3874 train.py \
  --config "./configs/train/first_stage.yaml" \
@@ -85,7 +105,7 @@ CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node 1 --master_port 3874 train.py \
  --save_name First_Unetlora
 ```
 
-### Second Stage
+### 2️⃣  Second Stage
 ```bash
 CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node 1 --master_port 6836 train.py \
  --config ./configs/train/second_stage.yaml \
