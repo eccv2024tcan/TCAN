@@ -1,8 +1,6 @@
 # [ECCV2024] TCAN: Animating Human Images with Temporally Consistent Pose Guidance using Diffusion Models
 This repository is the official implementation of [TCAN](https://arxiv.org/abs/2407.09012)
 
-🔥 We will soon release the official code, after organizing it 🔥
-
 > **TCAN: Animating Human Images with Temporally Consistent Pose Guidance using Diffusion Models**<br>
 > [Jeongho Kim*](https://scholar.google.co.kr/citations?user=4SCCBFwAAAAJ&hl=ko/), [Min-Jung Kim*](https://emjay73.github.io/), [Junsoo Lee](https://ssuhan.github.io/), [Jaegul Choo](https://sites.google.com/site/jaegulchoo/) 
 (*: equal contribution)
@@ -13,7 +11,7 @@ This repository is the official implementation of [TCAN](https://arxiv.org/abs/2
 
 ## TODO List
 - [ ] Inference code
-- [x] Release model weights
+- [ ] Release model weights
 - [x] Training code
 
 ## Dataset
@@ -58,33 +56,6 @@ pip install onnxruntime
 pip install numpy==1.26.4
 ```
 
-## Model Weights
-### Finetuned TCAN Model Weights
-Our finetuned model weights can be downloaded from here.
-```
-cd TCAN
-git clone https://huggingface.co/emjay73/TCAN checkpoints
-```
-Please note that ControlNet weights 'control_v11p_sd15_openpose_RenamedForMA.pth' we provide here is the ControlNet's pretrained weight with renamed parameters.
-The values of the original ControlNet weights are intact. 
-
-
-### Pretrained Model Weights
-#### From the Terminal
-We utilize pretrained weights of stablediffusion-v1.5, VAE, and ControlNet as it is.
-You can download these using the following code.
-```bash
-git lfs install
-cd checkpoints 
-git clone https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5
-git clone https://huggingface.co/stabilityai/sd-vae-ft-mse 
-cd ..
-
-# download yolox_l.onnx and dw-ll_ucoco_384.onnx
-cd dwpose/annotator
-git clone https://huggingface.co/yzd-v/DWPose ckpts
-```
-
 #### From the Links
 Download pretrained motion module weights provided by [AnimateDiff](https://github.com/guoyww/animatediff/)
 and RealisticVision UNet weights from the link.
@@ -98,6 +69,8 @@ Download Link:
 
 
 ## Train
+🔥We trained our model using two A100🔥
+
 ### First Stage
 ```bash
 CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node 1 --master_port 3874 train.py \
