@@ -1,0 +1,4 @@
+CUDA_VISIBLE_DEVICES=0 python inference_folder.py --from_dir "/home/nas4_dataset/vision/Disco_HAP/train/images" --p_idx 0 --n_proc 4 &> ./exp_nohup/dummy_0.txt &
+CUDA_VISIBLE_DEVICES=0 python inference_folder.py --from_dir "/home/nas4_dataset/vision/Disco_HAP/train/images" --p_idx 1 --n_proc 4 &> ./exp_nohup/dummy_1.txt &
+CUDA_VISIBLE_DEVICES=1 python inference_folder.py --from_dir "/home/nas4_dataset/vision/Disco_HAP/train/images" --p_idx 2 --n_proc 4 &> ./exp_nohup/dummy_2.txt &
+CUDA_VISIBLE_DEVICES=1 python inference_folder.py --from_dir "/home/nas4_dataset/vision/Disco_HAP/train/images" --p_idx 3 --n_proc 4 &> ./exp_nohup/dummy_3.txt &
